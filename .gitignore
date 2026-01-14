@@ -1,5 +1,7 @@
 # 🔐 Credentials & tokens
 credentials/credentials.json
+credentials/state.json
+credentials/token.json
 
 # 🐍 Python cache
 __pycache__/
