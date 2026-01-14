@@ -1,0 +1,19 @@
+# 🔐 Credentials & tokens
+credentials/credentials.json
+credentials/token.json
+credentials/state.json
+
+# 🐍 Python cache
+__pycache__/
+*.pyc
+
+# 🌱 Virtual environment
+venv/
+.env
+
+# 💻 OS files
+.DS_Store
+Thumbs.db
+
+# 📝 Logs
+*.log
