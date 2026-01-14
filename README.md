@@ -1,15 +1,16 @@
 Gmail to Google Sheets Automation (Python)
 
-Author: Aditya Kumar
-Language: Python 3
-APIs Used: Gmail API, Google Sheets API
-Authentication: OAuth 2.0
+**Author:** Aditya Kumar  
+**Language:** Python 3  
+**APIs Used:** Gmail API, Google Sheets API  
+**Authentication:** OAuth 2.0
 
-Project Overview
 
-This project is a Python automation system that connects to the Gmail API and Google Sheets API to read real unread emails from a Gmail Inbox, extract useful fields, and log them into a Google Sheet. Each email is stored only once, and the system safely remembers previously processed emails.
+**Project Overview**
 
-High-Level Architecture
+This project automates reading unread emails from Gmail and logs them into Google Sheets using Python. It uses Gmail API and Google Sheets API with OAuth 2.0 authentication. Each email is stored only once, and the system safely remembers previously processed emails.
+
+*High-Level Architecture*
 
         ┌────────────┐
         │   Gmail    │
@@ -34,7 +35,7 @@ High-Level Architecture
                ▼
         state.json (last processed email)
 
-Project Structure
+*Project Structure*
 
     gmail-to-sheets/
     ├── src/
@@ -50,7 +51,7 @@ Project Structure
     ├── .gitignore
     └── README.md
 
-Setup Instructions
+**Setup Instructions**
 
 1. Clone repository
 
@@ -73,7 +74,7 @@ Setup Instructions
 
 9. Browser will open → Login → Grant access → Emails sync to Sheets.
 
-OAuth Flow Used
+**OAuth Flow Used**
 
 - This project uses OAuth 2.0 Installed App Flow.
 The user authenticates via browser, grants access, and Google returns a secure access token which is stored locally and reused for future executions.
@@ -81,9 +82,9 @@ The user authenticates via browser, grants access, and Google returns a secure a
 - This avoids storing passwords and allows the user to revoke access anytime.
 
 
-Duplicate Prevention Logic
+**Duplicate Prevention Logic**
 
-Duplicates are prevented by:
+*Duplicates are prevented by:*
 
 - Fetching only INBOX + UNREAD emails
 
@@ -93,7 +94,7 @@ Duplicates are prevented by:
 
 - If the script is run again, previously processed emails are skipped.
 
-State Persistence Method
+**State Persistence Method**
 
 1. State is stored in a local file called:
 
@@ -107,7 +108,7 @@ State Persistence Method
         }
 
 
-Why this approach:
+**Why this approach:**
 
 - Gmail IDs are unique and permanent
 
@@ -131,7 +132,7 @@ Execution Flow
 
 - Mark emails as read
 
-Challenge Faced & Solution
+**Challenge Faced & Solution**
 
 - Challenge:
 Gmail emails often arrive in complex MIME formats with nested parts and base64 encoding.
@@ -139,7 +140,7 @@ Gmail emails often arrive in complex MIME formats with nested parts and base64 e
 - Solution:
 A recursive parser was implemented to safely extract and decode text/plain content, with fallback handling for HTML emails.
 
-Limitations
+**Limitations**
 
 - Works only with unread Inbox emails
 
